@@ -9,6 +9,7 @@ import StudentViewCoursesPage from "./pages/student-view/courses";
 import CourseDetails from "./pages/student-view/courseDetails";
 import StudentCourses from "./pages/student-view/student-courses";
 import CourseProgress from "./pages/student-view/course-progress";
+import NotFoundPage from "./pages/not-found";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const App = () => {
     {
       path: "/instructor/edit-course/:courseId",
       element: <RouteGaurd element={<AddNewCourse />} />,
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
     },
   ]);
   return <RouterProvider router={router} />;
