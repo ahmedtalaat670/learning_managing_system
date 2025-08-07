@@ -240,7 +240,7 @@ const Curriculum = () => {
                         controls
                       />
                     </div>
-                    <div className="flex flex-row md:flex-col justify-around">
+                    <div className="flex flex-col gap-5 justify-around">
                       <Button
                         onClick={() => handleReplaceTheVideo(index)}
                         className={"capitalize cursor-pointer"}

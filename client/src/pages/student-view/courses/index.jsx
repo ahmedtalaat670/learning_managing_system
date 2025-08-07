@@ -217,8 +217,8 @@ const StudentViewCoursesPage = () => {
                     }}
                   >
                     <CardContent className="flex flex-col">
-                      <div className="flex gap-4 p-4">
-                        <div className="w-48 h-32 flex-shrink-0">
+                      <div className="flex flex-col md:flex-row gap-4 p-4">
+                        <div className="w-full md:w-48 md:h-32 flex-shrink-0">
                           <img
                             src={courseItem?.image}
                             className="w-full h-full object-cover"

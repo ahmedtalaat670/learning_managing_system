@@ -14,8 +14,9 @@ import {
 } from "../ui/navigation-menu";
 
 const StudentViewHeader = () => {
-  const { authInformation, handleLogOut } = useContext(AuthContext);
-  const { windowWidth, setFilters } = useContext(StudentContext);
+  const { authInformation, handleLogOut, windowWidth } =
+    useContext(AuthContext);
+  const { setFilters } = useContext(StudentContext);
   const navigate = useNavigate();
   const handleSignInButton = () => {
     navigate("/auth");

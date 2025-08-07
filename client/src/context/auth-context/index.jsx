@@ -2,6 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Toaster } from "@/components/ui/sonner";
 import { initialSignInFormData, initialSignUpFormData } from "@/config";
 import { checkAuthService, logInService, registerService } from "@/services";
+import { LoaderCircle } from "lucide-react";
 import React, { createContext, Fragment, useEffect, useState } from "react";
 import { toast } from "sonner";
 export const AuthContext = createContext();
@@ -13,6 +14,7 @@ const AuthContextProvider = ({ children }) => {
     user: null,
   });
   const [loading, setLoading] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const handleRegisterUser = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -90,6 +92,15 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     handleCheckAuthUser();
   }, []);
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    return () => {
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
+    };
+  });
+  console.log(windowWidth);
 
   return (
     <AuthContext.Provider
@@ -104,10 +115,26 @@ const AuthContextProvider = ({ children }) => {
         resetCredentials,
         loading,
         handleLogOut,
+        windowWidth,
       }}
     >
       <Fragment>
-        <main>{!loading && children}</main>
+        <main>
+          {loading ? (
+            <div>
+              <div className="h-screen w-full flex items-center justify-center">
+                <img src="/src/assets/icon2.png" />
+              </div>
+              <span
+                className={`capitalize absolute w-full  bottom-10 text-center font-bold text-xl`}
+              >
+                by ahmed talaat
+              </span>
+            </div>
+          ) : (
+            children
+          )}
+        </main>
         <Toaster />
       </Fragment>
     </AuthContext.Provider>

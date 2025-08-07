@@ -4,7 +4,7 @@ import AuthPage from "./pages/auth";
 import RouteGaurd from "./components/route-gaurd";
 import InstructorViewHomePage from "./pages/instructor-view";
 import StudentViewHomePage from "./pages/student-view";
-import AddNewCourse from "./pages/Add-course";
+import AddNewCourse from "./pages/instructor-view/Add-course";
 import StudentViewCoursesPage from "./pages/student-view/courses";
 import CourseDetails from "./pages/student-view/courseDetails";
 import StudentCourses from "./pages/student-view/student-courses";

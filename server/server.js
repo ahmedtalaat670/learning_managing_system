@@ -11,7 +11,6 @@ const mediaRoutes = require("./routes/instructor_routes/media");
 const courseRoutes = require("./routes/instructor_routes/course");
 const studentRoutes = require("./routes/student-routes/course");
 const studentOrderRoutes = require("./routes/student-routes/order");
-const buyCourseRoute = require("./routes/student-routes/buyCourse");
 const studentBoughtCoursesRoute = require("./routes/student-routes/StudentCourses");
 const studentCourseProgressRoutes = require("./routes/student-routes/course-progress");
 
@@ -38,7 +37,6 @@ app.use("/media", mediaRoutes);
 app.use("/instructor", courseRoutes);
 app.use("/student", studentRoutes);
 app.use("/student/order", studentOrderRoutes);
-app.use("/student", buyCourseRoute);
 app.use("/student", studentBoughtCoursesRoute);
 app.use("/student/course-progress", studentCourseProgressRoutes);
 

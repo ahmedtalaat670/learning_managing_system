@@ -115,14 +115,14 @@ const CourseDetails = () => {
   if (approvalUrl !== "") {
     window.location.href = approvalUrl;
   }
-  if (loadingState)
-    return (
-      <div className="w-full h-screen flex items-center justify-center">
-        <LoaderCircle className="animate-spin h-15 w-15" />
-      </div>
-    );
+
   return (
     <div>
+      {loadingState && (
+        <div className="w-full h-screen flex items-center justify-center bg-[rgb(240,240,240,0.5)] z-10 absolute top-0 left-0">
+          <LoaderCircle className="animate-spin h-15 w-15" />
+        </div>
+      )}
       <div className="mx-auto p-4">
         <StudentViewHeader />
         <div className="bg-gray-900 text-white p-8 rounded-t-lg mt-5">

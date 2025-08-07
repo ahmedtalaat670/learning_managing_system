@@ -126,16 +126,14 @@ const CourseProgress = () => {
   useEffect(() => {
     if (showConfetti) setTimeout(() => setShowConfetti(false), 15000);
   }, [showConfetti]);
-  useEffect(() => {
-    // if (!authInformation.authentication) navigate("/courses/student-courses");
-  }, [authInformation.authentication]);
+
   useEffect(() => {
     updateCourseProgress();
   }, [played?.playedSeconds]);
   return (
     <>
       {loading && (
-        <div className="h-screen w-full flex justify-center items-center z-10 bg-transparent">
+        <div className="h-screen w-full flex justify-center items-center z-10 absolute top-0 left-0 bg-[rgb(240,240,240,0.5)]">
           <LoaderCircle className="h-20 w-20 animate-spin" />
         </div>
       )}
